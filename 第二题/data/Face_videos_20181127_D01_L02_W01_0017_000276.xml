@@ -1,0 +1,26 @@
+<annotation>
+	<folder>test_data</folder>
+	<filename>Face_videos_20181127_D01_L02_W01_0017_000276.jpg</filename>
+	<path>/Users/ksbc/PycharmProjects/sz_project/test_data/Face_videos_20181127_D01_L02_W01_0017_000276.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>560</width>
+		<height>560</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>gesture_0001</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>283</xmin>
+			<ymin>108</ymin>
+			<xmax>363</xmax>
+			<ymax>193</ymax>
+		</bndbox>
+	</object>
+</annotation>
