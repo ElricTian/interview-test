@@ -29,7 +29,7 @@ def get_info():
     filename_list = os.listdir()
     all_json = []
 
-    # 指定获取所以json文件文件名
+    # 指定获取json文件文件名
     for i in filename_list:
         if os.path.splitext(i)[1] == ".json":
             all_json.append(i)
@@ -47,9 +47,6 @@ def get_info():
     return boxes
 
 
-boxes = get_info()
-
-
 def screenshots(boxes):
 
     b = 0
@@ -58,7 +55,7 @@ def screenshots(boxes):
     filename = 'clip'
 
     # 如果没有该文件就创建该文件夹
-    if not os.path.exists("clip"):
+    if not os.path.exists(filename):
         os.mkdir(filename)
 
     os.chdir('data')
@@ -71,7 +68,6 @@ def screenshots(boxes):
             cropped.save(img_name)
             c += 2
             b += 1
-
 
 
 if __name__ == '__main__':
