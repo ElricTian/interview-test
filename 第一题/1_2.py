@@ -14,9 +14,13 @@ def get_info():
     for i in filename_list:
         if os.path.splitext(i)[1] == ".json":
             all_json.append(i)
+
+    # 列表排序
+    new_list = sorted(all_json, key=lambda x:int(re.match(r'(\d+)', x).group()))
+
     x_list = []
     y_list = []
-    for json_name in all_json:
+    for json_name in new_list:
         json_file = open(json_name)
         info = json.load(json_file)
         points = info['stMobile106'][0]['face106']['pointsArray']
@@ -52,7 +56,8 @@ def draw(xy):
 
     for i in all_img:
 
-            img_name = "img" + str(c*2) + ".jpg"
+            img_name = str(c*2) + ".jpg"
+
             im = array(Image.open(img_name))
 
             # 绘制图像

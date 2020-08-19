@@ -1,5 +1,7 @@
 import os
 import json
+import re
+
 from PIL import Image
 
 os.chdir("./data")
@@ -15,10 +17,10 @@ def change_filename():
         old_name = filename_list[a]
 
         if os.path.splitext(old_name)[1] == ".jpg":
-            new_name = 'img' + str(a) + '.jpg'
+            new_name = str(a) + '.jpg'
 
         else:
-            new_name = 'img' + str(a) + '.json'
+            new_name = str(a) + '.json'
         a += 1
         os.rename(old_name, new_name)
         print("文件%s重命名成功,新的文件名为%s" % (old_name, new_name))
@@ -34,9 +36,12 @@ def get_info():
         if os.path.splitext(i)[1] == ".json":
             all_json.append(i)
 
+    # 列表排序
+    new_list = sorted(all_json, key=lambda x: int(re.match(r'(\d+)', x).group()))
+
     # 读取json提取信息
     boxes = []
-    for json_name in all_json:
+    for json_name in new_list:
         json_file = open(json_name)
         info = json.load(json_file)
         face_box = info['stMobile106'][0]['face106']['rect']
@@ -62,7 +67,7 @@ def screenshots(boxes):
 
     for i in filename_list:
         if c < 40:
-            img = Image.open("img" + str(c) + ".jpg")
+            img = Image.open(str(c) + ".jpg")
             cropped = img.crop(boxes[b])
             img_name = "../clip/" + str(b) + ".jpg"
             cropped.save(img_name)
