@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+
+<body>
+
+{% for content in contents %}
+
+    <li>电影名:{{ content.tilte }}</li>
+    <li>导演:{{ content.director }}</li>
+    <li>演员:{{ content.actors }}</li>
+    <li>地区:{{ content.region }}</li>
+    <li>评分:{{ content.score }}</li>
+    <li>上映时间:{{ content.release }}</li>
+    <li>时长:{{ content.duration }}</li>
+    <a href="{{ content.buy_url }}">购票</a>
+
+
+{% endfor %}
+
+</body>
+</html>

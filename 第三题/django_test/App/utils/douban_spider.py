@@ -61,7 +61,7 @@ def save_data(document):
     # 指定数据库
     db = client['spider']
     # 指定集合
-    collection = db['douban']
+    collection = db['douban_spider']
 
     result = collection.insert(document)
     if result:
@@ -74,16 +74,18 @@ def douban_spider():
     save_data(document)
 
 
-def timing(h, m):
+def timing(h):
 
     while True:
         now = datetime.datetime.now()
         # print(now.hour, now.minute)
-        if now.hour == h and now.minute == m:
+        if now.hour == h:
             print('开始运行爬虫程序')
             douban_spider()
+            print("已爬取完")
         time.sleep(60)
 
 
 if __name__ == '__main__':
-    timing(14, 12)
+    # douban_spider()
+    timing(9)
