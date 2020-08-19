@@ -1,5 +1,5 @@
 import json
-
+import os
 from PIL import Image
 from pylab import *
 os.chdir("./data")
@@ -35,7 +35,7 @@ def draw(xy):
 
     x, y = xy
     c = 0
-    print(len(y))
+
     os.chdir("..")
     filename = 'data106'
 
@@ -51,7 +51,6 @@ def draw(xy):
             all_img.append(i)
 
     for i in all_img:
-        if c < 22:
 
             img_name = "img" + str(c*2) + ".jpg"
             im = array(Image.open(img_name))

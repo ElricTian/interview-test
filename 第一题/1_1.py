@@ -1,8 +1,8 @@
 import os
 import json
 from PIL import Image
-path = 'data'
-os.chdir(path)
+
+os.chdir("./data")
 
 
 def change_filename():
@@ -51,15 +51,15 @@ def screenshots(boxes):
 
     b = 0
     c = 0
+
     os.chdir("..")
     filename = 'clip'
-
-    # 如果没有该文件就创建该文件夹
     if not os.path.exists(filename):
         os.mkdir(filename)
 
     os.chdir('data')
     filename_list = os.listdir()
+
     for i in filename_list:
         if c < 40:
             img = Image.open("img" + str(c) + ".jpg")

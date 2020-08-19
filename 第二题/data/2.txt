@@ -1,0 +1,7 @@
+xmin_sum:5499
+ymin_sum:7995
+xmax_sum:4156
+ymax_sum:6577
+s_avg:12218.08695652174
+s_max:32640
+s_var:52467577.446640305
