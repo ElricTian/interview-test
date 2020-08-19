@@ -1,8 +1,8 @@
 import datetime
+import time
 import requests
 import pymongo
 from lxml import etree
-
 
 
 def get_html():
@@ -74,5 +74,16 @@ def douban_spider():
     save_data(document)
 
 
+def timing(h, m):
+
+    while True:
+        now = datetime.datetime.now()
+        # print(now.hour, now.minute)
+        if now.hour == h and now.minute == m:
+            print('开始运行爬虫程序')
+            douban_spider()
+        time.sleep(60)
+
+
 if __name__ == '__main__':
-    douban_spider()
+    timing(14, 12)
