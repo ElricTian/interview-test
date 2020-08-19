@@ -34,18 +34,18 @@ def get_info():
     return xy
 
 
-def draw(xy):
+def draw2(xy):
 
     x, y = xy
     c = 0
 
     os.chdir("..")
-    filename = 'data106'
+    filename = 'clip106'
 
     if not os.path.exists(filename):
         os.mkdir(filename)
 
-    os.chdir('data')
+    os.chdir('./clip')
     filename_list = os.listdir()
 
     all_img = []
@@ -55,23 +55,39 @@ def draw(xy):
 
     for i in all_img:
 
-            img_name = str(c*2) + ".jpg"
+        img_name = str(c) + ".jpg"
+        im = array(Image.open(img_name))
 
-            im = array(Image.open(img_name))
+        # 绘制图像
+        imshow(im)
+        a = (c+1)*106
+        b = c * 106
 
-            # 绘制图像
-            imshow(im)
-            a = (c+1)*106
-            b = c * 106
+        plot(x[b:a], y[b:a], '.')
 
-            plot(x[b:a], y[b:a], '.')
-            c += 1
-            img = "../data106/" + str(c)
-            savefig(img)
-            show()
+        img = "../clip106/" + str(c)
+        savefig(img)
+        show()
+        c += 1
 
 
-if __name__ == '__main__':
+def re_size():
 
-    xy = get_info()
-    draw(xy)
+    os.chdir('./clip106')
+    c = 0
+    imgs = os.listdir()
+
+    for i in imgs:
+        im = str(c) + ".png"
+        img = Image.open(im)  # 读取图片
+        width = img.size[0]
+        height = img.size[1]
+
+        img_deal = img.resize((width*2, height*2), Image.ANTIALIAS)
+        img_deal.save(im)
+        c +=1
+
+
+# xy = get_info()
+# draw2(xy)
+# re_size()
