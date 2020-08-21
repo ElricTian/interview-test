@@ -37,7 +37,7 @@ def get_info():
             all_json.append(i)
 
     # 列表排序
-    new_list = sorted(all_json, key=lambda x: int(re.match(r'(\d+)', x).group()))
+    new_list = sorted(all_json, key=lambda x: len(x))
 
     # 读取json提取信息
     boxes = []
@@ -76,6 +76,6 @@ def screenshots(boxes):
 
 
 if __name__ == '__main__':
-    change_filename()
+    # change_filename()
     box = get_info()
     screenshots(box)
