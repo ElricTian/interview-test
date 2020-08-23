@@ -77,7 +77,7 @@ def count_num(items):
 
     s_var = df['s'].var().tolist()
     content.append(('s_var:' + str(s_var)))
-
+    os.chdir('..')
     with open("2.txt", "w") as f:
         for i in content:
             f.write("{}\n".format(i))
