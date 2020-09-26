@@ -1,4 +1,4 @@
-author = 'XXX'
+__author__ = 'ElricTian'
 ## 更新文件
 git add .
 
